@@ -1,5 +1,5 @@
 
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Continuum Mosaic · Rhythm Composer</title><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Continuum Mosaic · Rhythm Engine · TR-808 Theme</title><style>
 :root{color-scheme:dark;--bg:#101115;--panel:#1b1d22;--line:#41434b;--amber:#efab60;--muted:#aaaab2}*{box-sizing:border-box}
 body{margin:0;background:#101115;color:#eeeef1;font:13px system-ui,Arial,sans-serif}header{padding:14px 20px;background:#17191e;border-bottom:2px solid #b9793e}h1{margin:0;font-size:23px;letter-spacing:.04em}h1 span,h2{color:var(--amber)}h2{font-size:15px;margin:0 0 9px}h3{font-size:12px;margin:0;color:var(--amber)}small,.muted{color:var(--muted);font-size:11px}main{max-width:1700px;margin:auto;padding:12px;display:grid;gap:12px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:11px;min-width:0}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}label{display:inline-flex;gap:5px;align-items:center}button,select,input[type=number]{background:#292b32;color:#f3f3f5;border:1px solid #5d5e66;border-radius:4px;padding:5px 7px;font:inherit}button{cursor:pointer}button:hover{border-color:#ffc87d}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #ffc87d}button.primary{background:#8b4e29;border-color:#d89855;font-weight:700}button.active{background:#e2a45a;color:#17120d}input[type=range]{accent-color:#e6a054;width:85px}input[type=number]{width:66px}.pill{background:#44352a;color:#ffd9a4;border-radius:16px;padding:5px 9px}#message{color:#ffcf92;min-height:16px}.meter{width:125px;height:10px;background:#0e1013;border:1px solid #555;border-radius:3px;overflow:hidden}.meter div{height:100%;width:0;background:#e8a04c}
 .source-workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start}.source-panel,.voicepanel{min-width:0}.source-panel .controls{gap:5px}.source-panel .controls select,.source-panel .controls button{font-size:11px;padding:5px}.source-panel .controls small{flex-basis:100%}
@@ -66,6 +66,35 @@ body{margin:0;background:#101115;color:#eeeef1;font:13px system-ui,Arial,sans-se
 /* Prototype 20: compact live pad event looper */
 .looper-controls{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:9px 0}.looper-controls button{padding:7px 10px}.looper-controls button.active{background:#a65b24;color:#fff;border-color:#f5bf71}.looper-controls label{font-size:11px}.looper-status{font-size:11px;color:#f3bc82;margin:6px 0 12px}.looper-controls select{max-width:130px}
 .track-effects{width:100%;margin-top:8px;border-top:1px solid #79583a;padding-top:5px;font-size:10px}.track-effects summary{cursor:pointer;color:#f4b36c;font-weight:bold}.track-effects label{display:flex;flex-direction:column;gap:3px;margin-top:5px}.track-effects input{max-width:70px;width:100%;accent-color:#e99b48}
+
+/* Sample Library · darkened graphite TR-808 chassis */
+#sbLibrary{background:#191a1c!important;border-color:#414246!important;color:#e6e3dd}
+#sbLibrary h2{color:#ef873b}#sbLibrary .sbgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:9px;margin:10px 0}
+#sbLibrary label{display:flex;flex-direction:column;align-items:stretch;gap:5px;font-size:11px}
+#sbLibrary select{width:100%;min-width:0;background:#111214;color:#f3f0eb;border:1px solid #505054;padding:8px}
+#sbLibrary .sbbuttons{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+#sbLibrary button{background:#292a2d;color:#f0ece5;border:1px solid #65615d}
+#sbLibrary button.primary{background:#733d20;border-color:#d17a38}
+#sbLibrary #sbBrowse{max-height:240px;overflow:auto;display:grid;gap:4px;background:#111214;border:1px solid #404145;padding:7px}
+#sbLibrary #sbBrowse button{text-align:left;white-space:normal;overflow-wrap:anywhere;padding:7px}
+#sbLibrary #sbStatus{font-size:11px;color:#c9c5bd;overflow-wrap:anywhere}
+
+/* Final layout: library occupies its own full-width row above the paired editors. */
+#sbLibrary{background:#141518;border-color:#383a3e;margin:0}
+#sbLibrary .muted{color:#bcbab7}
+#sbLibrary .sbgrid select{background:#191a1d;color:#eae8e4;border-color:#424347}
+#sbLibrary button{background:#222327;color:#efeeeb;border-color:#4b4c50}
+#sbLibrary button.primary{background:#743d20;border-color:#bb7039}
+.source-workspace{grid-template-rows:auto minmax(0,1fr);align-items:stretch}
+.source-workspace>.source-panel,.source-workspace>.voicepanel{align-self:stretch;min-height:520px}
+@media(min-width:901px){
+.source-workspace{grid-template-rows:1fr}
+.source-workspace>.source-panel,.source-workspace>.voicepanel{height:560px;min-height:560px}
+}
+@media(max-width:900px){
+.source-workspace>.source-panel,.source-workspace>.voicepanel{height:auto;min-height:0}
+.source-workspace>.source-panel #sources{max-height:480px;overflow-y:auto}
+}
 </style><style>
 /* CONTINUUM SYNTH VISUAL MATCH — RHYTHM ENGINE P30 — CSS ONLY */
 :root{color-scheme:dark;--bg:#050505;--panel:#0b0b0c;--line:#343435;--amber:#ffbe72;--muted:#aaa8a5}
@@ -189,7 +218,7 @@ main {
   gap: 10px !important;
 }
 .panel {
-  background: linear-gradient(165deg, #323438 0%, #2a2c30 55%, #222426 100%) !important;
+  background: linear-gradient(165deg, #34363a 0%, #2c2e32 55%, #242628 100%) !important;
   border: 1px solid var(--r808-edge) !important;
   border-top-color: #4a4c50 !important;
   border-radius: 3px !important;
@@ -462,9 +491,48 @@ input[type=range] {
   color: var(--r808-label) !important;
 }
 </style>
-</head><body><header><h1>CONTINUUM MOSAIC <span>· RHYTHM COMPOSER</span></h1><p class="muted">40-track sample + synthesis rhythm workstation · 16/32/64 steps · one hit per step</p></header><main>
+<style id="continuum-graphite-deep-tone">
+/* Deep graphite pass: darken grey surfaces throughout without muting labels or amber indicators. */
+:root{--bg:#0b0c0e;--panel:#141518;--line:#303238;--muted:#b1b0b4}
+html,body{background:#0b0c0e}
+header{background:#111214}
+.panel{background:#141518;border-color:#303238}
+button,select,input[type=number],input[type=text],input[type=search],textarea{background:#1a1b1f;color:#efeff0;border-color:#414248}
+button:hover,select:hover{background:#24252a}
+.source,.track{border-color:#2c2e32}
+.source .upload-button{background:#29221e}
+.voicegroup,.mixer-channel,.fx{background:#191a1d;border-color:#34363a}
+.step{background:#1b1d22;border-color:#373940}
+.step.on{background:#e5a450;border-color:#f8c37c}
+.micro-hit{background:#23252a;border-color:#3a3b40}
+.micro-hit.lit{background:#f1b46d;border-color:#ffe0a2}
+.seqhead{background:#141518;border-bottom-color:#37322c}
+#subdivisionWorkstation{background:#17181b}
+.subcell{background:#1c1d21;border-color:#49413b}
+.subcell.on{background:#d99c51}
+.pad{background:#211e1c;border-color:#5b4736}
+.pad.hit{background:#e3a255}
+.meter{background:#090a0c}
+.pill{background:#302720}
+.source-expand{background:#28211d}
+#continuumSampleLibrary,#sbLibraryPanel,#sampleLibraryPanel{background:#121316!important;border-color:#34363b!important}
+#continuumSampleLibrary .sb-browser,#sbBrowser{background:#0d0e10!important;border-color:#34363b!important}
+#continuumSampleLibrary select,#continuumSampleLibrary input,#sbFolder,#sbSample,#sbTrack{background:#191a1e!important;color:#efeeec!important;border-color:#424348!important}
+#continuumSampleLibrary button,#sbBrowser button{background:#222328;color:#f2f0ec}
+#continuumSampleLibrary button.primary{background:#743d20}
+</style><style id="rc-final-layout-correction">
+.source-workspace{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;grid-template-rows:auto 560px!important;align-items:stretch!important;gap:10px!important}
+.source-workspace>#libraryAddPanel{grid-column:1/-1!important;grid-row:1!important}
+.source-workspace>.source-panel{grid-column:1!important;grid-row:2!important}
+.source-workspace>.voicepanel{grid-column:2!important;grid-row:2!important}
+.source-workspace>.source-panel,.source-workspace>.voicepanel{height:560px!important;min-height:0!important;max-height:560px!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+.source-workspace>.source-panel #sources,.source-workspace>.voicepanel #voiceControls{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important}
+#sbLibrary{background:#0c0c0d!important;border-color:#343435!important}
+@media(max-width:900px){.source-workspace{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto auto auto!important}.source-workspace>#libraryAddPanel{grid-column:1!important;grid-row:1!important}.source-workspace>.source-panel{grid-column:1!important;grid-row:2!important}.source-workspace>.voicepanel{grid-column:1!important;grid-row:3!important}.source-workspace>.source-panel,.source-workspace>.voicepanel{height:auto!important;max-height:none!important;min-height:0!important;overflow:visible!important}.source-workspace>.source-panel #sources,.source-workspace>.voicepanel #voiceControls{max-height:480px!important;overflow-y:auto!important}}
+</style></head><body><header><h1>CONTINUUM MOSAIC <span>· RHYTHM ENGINE</span></h1><p class="muted">40-track sample + synthesis rhythm workstation · 16/32/64 steps · one hit per step</p></header><main>
 <section class="panel"><h2>01 · Master Transport</h2><div class="controls"><button id="audio" class="primary">ACTIVATE AUDIO</button><button id="play" class="primary">▶ START</button><button id="stop">■ STOP</button><label>BPM <input id="bpm" type="number" min="30" max="300" value="120"></label><label>Swing <input id="swing" type="range" min="0" max="70" value="0"><output id="swingOut">0%</output></label><label>Steps <select id="length"><option>16</option><option>32</option><option>64</option></select></label><label>Master <input id="master" type="range" min="0" max="100" value="75"></label><span class="pill" id="position">STEP 01</span><div class="meter"><div id="meterbar"></div></div></div><p id="message" role="status">Activate audio, then Generate Demo Samples or load your own one-shots.</p></section>
 <section class="panel"><h2>03 · Rhythm Sequencer · 40 Tracks</h2><div class="controls"><button id="random">RANDOMISE PATTERN</button><button id="clearPattern">CLEAR PATTERN</button><button id="save">EXPORT PROJECT ↓</button><button id="load">IMPORT PROJECT ↑</button><button id="savePattern">SAVE PATTERN ↓</button><button id="loadPattern">LOAD PATTERN ↑</button><input id="projectFile" type="file" accept=".json,application/json" hidden><input id="patternFile" type="file" accept=".json,application/json" hidden><small>Tap a step to select it for subdivision editing. The tap also toggles its straight hit; configure positions in the editor below. Amber = active. Each track has one hit per step.</small></div><div id="subdivisionWorkstation"><h2>SUBDIVISION WORKSTATION · Selected Track & Step</h2><p class="muted">Select a track and step with EDIT in the grid. Divide the chosen step or the containing beat into 2, 3, 4, 6, 8 or 12 independently triggered positions. Beat subdivisions are mapped onto the shared four-step beat timeline.</p><div class="controls"><strong id="selectedLabel">Track 01 · Step 01</strong><label>Resolution relative to <select id="subUnit"><option value="step">STEP</option><option value="beat">BEAT</option></select></label><label>Divisions <select id="subdivision"><option value="1">1 · Straight</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="6">6</option><option value="8">8</option><option value="12">12</option></select></label><label>Velocity <input id="velocity" type="range" min="1" max="127" value="110"><output id="velOut">110</output></label><button id="straight">STRAIGHT HIT</button><button id="roll">FILL ALL POSITIONS</button><button id="clearSub">CLEAR POSITIONS</button></div><div class="editor" id="subeditor"></div><small>Each sequencer step supports 1, 2, 3, 4, 6, 8 or 12 divisions. Beat mode schedules positions across the four steps of its containing beat. Click a microstep to toggle it; select it to change velocity. 16/32/64 are the number of main steps, not the number of tracks.</small></div><h2 style="margin-top:18px">40-Track Pattern Grid · Click to Toggle</h2><p class="muted">Multiple independently timed hits per step. The window displays 16 of 40 tracks. Scroll vertically for other tracks and horizontally for 32/64 steps.</p><div class="tracks"><div class="seq" id="seq"></div></div></section>
+<section class="panel" id="sbLibrary"><h2>02A · CONTINUUM SAMPLE LIBRARY</h2><p class="muted">Browse, audition and load samples into the existing 40 tracks.</p><div class="sbgrid"><label>FOLDER<select id="sbFolder"></select></label><label>AUDIO FILE<select id="sbFile"></select></label><label>DESTINATION TRACK<select id="sbTrack"></select></label></div><div class="sbbuttons"><button id="sbRefresh" type="button">CONNECT / REFRESH</button><button id="sbPreview" type="button">▶ PREVIEW</button><button id="sbStop" type="button">■ STOP</button><button id="sbLoad" class="primary" type="button">LOAD INTO TRACK</button></div><div id="sbBrowse"></div><p id="sbStatus" role="status">Press CONNECT / REFRESH to browse the Sample Library.</p></section>
 <div class="source-workspace"><section class="panel" id="libraryAddPanel"><h2>Kit Voice Loader · Combine Multiple Banks</h2><div class="controls"><label>Source bank <select id="voiceBank"></select></label><label>Individual instrument <select id="kitVoice"></select></label><label>Destination <select id="destinationTrack"></select></label><button id="addToTrack">ADD TO TRACK</button><button id="addVoice">ADD TO NEXT EMPTY TRACK</button><button id="replaceVoice">REPLACE DESTINATION TRACK</button><button id="appendKit">APPEND ENTIRE KIT TO EMPTY TRACKS</button></div><p class="muted">Choose a source bank here (or from the Sound Sources library), then add its individual voices to a chosen empty track, the next empty track, or append an entire bank without erasing other tracks. LOAD KIT replaces all tracks deliberately; these ADD buttons do not. Each track has independent Voice Designer settings, sample loading, sequencer steps and mixer controls.</p></section><section class="panel source-panel"><h2>02 · Sound Sources · 40 Tracks</h2><p class="muted">ONE SHOT = sequenced hits · SYNC LOOP = bar-aligned loop, tempo-matched by playback speed (pitch changes) · FREE PLAY = independent audition. Set the source loop length in bars. STOP halts synchronised loops.</p><div class="controls"><label>DRUM MACHINE LIBRARY <select id="kitLibrary"><option value="">EMPTY / USER KIT</option><option value="808">808</option><option value="606">606</option><option value="909">909</option><option value="707">707</option><option value="505">505</option><option value="CR78">CR78</option><option value="DMX">DMX</option><option value="DrumBrute">DRUMBRUTE</option><option value="RZ1">RZ1</option><option value="DR55">DR55</option><option value="TR1000">TR1000</option><option value="HD01">HD01</option><option value="Pulsar23">PULSAR 23</option></select></label><button id="loadKit" class="primary">LOAD SELECTED KIT</button><button id="demo">GENERATE DEMO SAMPLES</button><button id="clearSamples" class="warn">CLEAR SAMPLES</button><small>Kit selections are original synthesis interpretations, not recordings of the named hardware. Upload a file directly beside any track name.</small></div><div id="sources"></div></section><section class="panel voicepanel"><h2>Selected Track · Voice Designer</h2><div class="controls"><label>Track <select id="voiceTrack"></select></label><label>Voice template <select id="voicePreset"></select></label><button id="applyPreset" class="primary">APPLY TEMPLATE</button><button id="previewVoice">▶ AUDITION</button></div><p class="muted">Loading a voice into a destination track automatically selects it here. Click a Sound Sources track name or PLAY to select it for individual editing. Changes affect that track's audition and sequencer playback.</p><div id="voiceControls" class="voicegrid"></div></section></div>
 
 <section class="panel"><h2>04 · Live Instrument Trigger Pads</h2><div class="looper-controls" aria-label="Live pattern looper"><button id="loopRecord" class="primary">● RECORD</button><button id="loopPlay">▶ LOOP</button><button id="loopFinish" title="Finish recording at the next bar boundary">■ FINISH PHRASE</button><button id="loopOverdub">+ OVERDUB</button><button id="loopUndo">↶ UNDO</button><button id="loopClear">CLEAR LOOP</button><button id="loopSave">SAVE LOOP</button><label>Mode <select id="loopCapture"><option value="auto">AUTO PHRASE</option><option value="fixed">FIXED BARS</option></select></label><label>Min phrase <select id="loopMinBars"><option value="1">1 bar</option><option value="2">2 bars</option><option value="4" selected>4 bars</option><option value="8">8 bars</option><option value="16">16 bars</option></select></label><label>Max bars <select id="loopBars"><option value="1">1</option><option value="2">2</option><option value="4">4</option><option value="8">8</option><option value="16">16</option></select></label><label>Timing <select id="loopQuant"><option value="free">FREE</option><option value="16">1/16 GRID</option><option value="8">1/8 GRID</option></select></label></div><p id="loopStatus" class="looper-status" role="status">Looper idle · AUTO PHRASE waits at least the selected minimum bars; FINISH PHRASE closes at the next bar boundary. FIXED BARS records the full selected length.</p><div id="pads" class="pads"></div><p class="muted">Pads trigger all 40 tracks. Optional keyboard triggers: 1–0 for tracks 1–10, Q–P for tracks 11–20 (when not typing).</p></section>
@@ -732,4 +800,18 @@ for(const [key,id] of [['cut','sculptCut'],['res','sculptRes'],['attack','sculpt
 $('sculptOn').onchange=e=>{sculpt.on=e.target.checked;updateSculpt()};$('sculptReset').onclick=()=>{Object.assign(sculpt,{on:false,cut:18000,res:.7,attack:0,hold:0,decay:0});refreshSculptControls();updateSculpt()};refreshSculptControls();
 $('allFxOff').onclick=()=>{effectNames.forEach(n=>{state[n].enabled=false;updateFx(n)});renderEffects()};document.addEventListener('keydown',e=>{if(e.repeat||e.altKey||e.ctrlKey||e.metaKey||['INPUT','SELECT','TEXTAREA','BUTTON'].includes(document.activeElement?.tagName))return;let chars='1234567890qwertyuiop',i=chars.indexOf(e.key.toLowerCase());if(i>=0){audio();hit(i);loopPad(i)}});renderSources();renderSeq();renderEditor();renderPads();renderMixer();renderEffects();initVoiceDesigner();
 
-</script></body></html>
+</script><script id="sbLibraryIntegration">(()=>{'use strict';
+const BASE='https://rsfletkmmcynswjolpcu.supabase.co',BUCKET='Sample Library',KEY="sb_publishable_D7YDZtW1K7cLYbyck8C2eg_b4-pDa3S";
+const el=id=>document.getElementById(id),status=t=>el('sbStatus').textContent=t,ext=/\.(wav|mp3|ogg|flac|m4a|aac|aif|aiff|opus)$/i;
+const option=(v,t)=>{const o=document.createElement('option');o.value=v;o.textContent=t;return o};
+const url=p=>BASE+'/storage/v1/object/public/'+encodeURIComponent(BUCKET)+'/'+p.split('/').map(encodeURIComponent).join('/');
+let folder='',preview=null,request=0;
+async function list(prefix){let all=[],offset=0;for(let i=0;i<30;i++){const r=await fetch(BASE+'/storage/v1/object/list/'+encodeURIComponent(BUCKET),{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({prefix,limit:1000,offset,sortBy:{column:'name',order:'asc'}})});if(!r.ok)throw Error('Storage HTTP '+r.status);const data=await r.json();if(!Array.isArray(data))throw Error('Invalid listing');all.push(...data);if(data.length<1000)break;offset+=1000}return all}
+async function browse(){const ticket=++request;try{status('Reading '+(folder||'/')+'…');const data=await list(folder);if(ticket!==request)return;const dirs=data.filter(x=>x.name&&(x.id==null||x.metadata==null)),files=data.filter(x=>x.name&&x.id!=null&&x.metadata!=null&&ext.test(x.name));const fs=el('sbFolder'),ss=el('sbFile'),browser=el('sbBrowse');fs.replaceChildren();ss.replaceChildren();browser.replaceChildren();fs.append(option(folder,folder||'/ ROOT'));ss.append(option('','SELECT AUDIO · '+files.length));const add=(name,fn)=>{const b=document.createElement('button');b.type='button';b.textContent=name;b.onclick=fn;browser.append(b)};if(folder){const bits=folder.replace(/\/$/,'').split('/'),parent=bits.slice(0,-1).join('/');const back=parent?parent+'/':'';fs.append(option(back,'↑ PARENT'));add('↑ PARENT',()=>{folder=back;browse()})}for(const d of dirs){const next=folder+d.name+'/';fs.append(option(next,'📁 '+d.name));add('📁 '+d.name,()=>{folder=next;browse()})}for(const f of files){const full=folder+f.name;ss.append(option(full,f.name));add('♫ '+f.name,()=>{ss.value=full;status('Selected '+full)})}if(!browser.children.length)browser.textContent='No supported audio files or folders.';status((folder||'/')+' · '+dirs.length+' folders · '+files.length+' audio files')}catch(e){if(ticket===request)status('Library unavailable: '+e.message)}}
+async function getAudio(){const path=el('sbFile').value;if(!path)throw Error('Select an audio file');const r=await fetch(url(path));if(!r.ok)throw Error('Audio HTTP '+r.status+'; check public bucket permissions');return {path,bytes:await r.arrayBuffer()}}
+async function decode(bytes){audio();await ctx.resume();return ctx.decodeAudioData(bytes)}
+el('sbRefresh').onclick=browse;el('sbFolder').onchange=e=>{folder=e.target.value;browse()};el('sbStop').onclick=()=>{if(preview){try{preview.stop()}catch(e){}preview=null}status('Preview stopped')};
+el('sbPreview').onclick=async()=>{try{const {path,bytes}=await getAudio(),buffer=await decode(bytes);if(preview){try{preview.stop()}catch(e){}}const source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=buffer;gain.gain.value=.5;source.connect(gain);gain.connect(ctx.destination);preview=source;source.onended=()=>{if(preview===source)preview=null};source.start();status('Previewing '+path)}catch(e){status('Preview failed: '+e.message)}};
+el('sbLoad').onclick=async()=>{try{const i=Number(el('sbTrack').value);if(!Number.isInteger(i)||!tracks[i])throw Error('Invalid track');const {path,bytes}=await getAudio(),buffer=await decode(bytes),t=tracks[i];t.buffer=buffer;t.file=path;t.name=path.split('/').pop().replace(/\.[^.]+$/,'');t.source='sample';t.playMode='one';t.design=t.design||{...DESIGN_DEFAULT};designerTrack=i;renderSources();renderVoiceDesigner();refreshNames();renderMixer();status('Loaded '+path+' into Track '+(i+1));msg('Supabase sample loaded into Track '+(i+1))}catch(e){status('Load failed: '+e.message)}};
+for(let i=0;i<tracks.length;i++)el('sbTrack').append(option(String(i),'TRACK '+String(i+1).padStart(2,'0')+' · '+tracks[i].name));
+})();</script></body></html>
